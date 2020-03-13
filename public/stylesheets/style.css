@@ -1,0 +1,29 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url("/images/cook.jpg") center center no-repeat;
+  min-height: 100vh;
+}
+
+a {
+  color: rgb(0, 183, 255)
+}
+
+#title {
+  font-weight: bold;
+  font-size: 1.7rem;
+  padding: 2px;
+}
+
+#title:hover {
+  font-size: 1.8rem;
+}
+
+main {
+  padding-top: 50px;
+}
+
+#reviews {
+  max-height: 50vh;
+  overflow: auto;
+}
