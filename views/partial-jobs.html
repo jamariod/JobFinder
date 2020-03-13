@@ -1,21 +1,71 @@
-<h1 id = 'title'>Job Results</h1>
-
-<style>
-    #title {
-        color:black;
-        text-align: center;;
-    }
-</style>
-<h2>
-${jobData.map(jobs => 
-
-    `
-    <a class='button is-large is-fullwidth' href='/jobs/${jobs.id}'>${jobs.title}  
-    </a>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    `
-).join('')}
+            <title>Job Search Results</title>
 
-</h2>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    
+    </head>
 
+    <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base index">
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+                <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+                    <div class="mdl-layout__header-row portfolio-logo-row">
+                        <!-- Navigation -->
+                        <nav class="mdl-navigation">
+                            <a class="mdl-navigation__link" href="/">Home</a>
+                            <a class="mdl-navigation__link" href="">About</a>
+                            <a class="mdl-navigation__link" href="/jobs">Jobs</a>
+                            <a class="mdl-navigation__link" href="">Logout</a>
+                        </nav> 
+                  </div>
+                </header>  
+            </div> 
 
+    
+            <h1 id = 'title'>Job Results</h1>
+
+            <style>
+                #title {
+                    color:black;
+                    text-align: center;;
+                    font-size: 3rem;
+                }
+
+                .jobResult {
+                    border: 1px solid black;
+                    text-align: center;
+                }
+
+            </style>
+
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer">
+    </div>
+    <div class="mdl-cell mdl-cell--8-col">
+
+${jobData.map(jobs => {
+
+                return `<div class = 'jobResult'>
+                    <p id = 'job_title'><strong><u>${jobs.title}</u></strong></p>
+                    <p>${jobs.company}</p>
+                    <p>${jobs.job_description}</p>
+                    <p>Pay Rate: ${jobs.compensation}</p>
+                    <!-- <p>Date Posted: ${jobs.date_posted}</p> -->
+                    <button type=button class='mld-button mdl-button--raised'>Read More</button>
+                    <button type=button class='mld-button mdl-button--raised'>Save Job</button>
+
+                </div>
+                `}).join('')}
+
+    </div>
+    <div class="mdl-layout-spacer">
+    </div>  
+
+    </body>
+</html>

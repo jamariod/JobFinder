@@ -3,9 +3,10 @@ const express = require('express'),
   jobModel = require('../models/jobModel');
 
 // gets job page
-router.get('/jobs', async function (req, res) {
+router.get('/', async function (req, res) {
     const jobData = await jobModel.getAllJobs();
   
+    console.log(jobData);
   
     res.render('template', {
       locals: {
