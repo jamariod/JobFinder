@@ -1,0 +1,21 @@
+<h1 id = 'title'>Job Results</h1>
+
+<style>
+    #title {
+        color:black;
+        text-align: center;;
+    }
+</style>
+<h2>
+${jobData.map(jobs => 
+
+    `
+    <a class='button is-large is-fullwidth' href='/jobs/${jobs.id}'>${jobs.title}  
+    </a>
+    
+    `
+).join('')}
+
+</h2>
+
+
