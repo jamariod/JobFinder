@@ -4,6 +4,9 @@ const express = require('express'),
     logger = require('morgan'),
     es6Renderer = require('express-es6-template-engine'),
     app = express();
+    puppeteer = require('puppeteer'),
+    axios = require('axios'),
+    cheerio = require('cheerio');
 
 app.use(logger('dev'));
 app.use(express.json());
