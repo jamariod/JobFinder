@@ -3,26 +3,29 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
-const express = require("express");
-const app = express();
-const bcrypt = require("bcrypt");
-const passport = require("passport");
-const flash = require("express-flash");
-const session = require("express-session");
-const methodOverride = require("method-override");
+const express = require("express"),
+  path = require("path"),
+  cookieParser = require("cookie-parser"),
+  logger = require("morgan"),
+  es6Renderer = require("express-es6-template-engine"),
+  app = express();
+(puppeteer = require("puppeteer")),
+  (axios = require("axios")),
+  (passport = require("passport")),
+  (flash = require("express-flash")),
+  (session = require("express-session")),
+  (methodOverride = require("method-override")),
+  (cheerio = require("cheerio"));
 
-const initializedPassport = require("./passport-config");
-initializedPassport(
-  passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
-);
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
 
-//Jobs database will got here
-const users = [];
-
-app.use(express.static("public"));
-app.set("view-engine", "ejs");
+app.engine("html", es6Renderer);
+app.set("views", "./views");
+app.set("view engine", "html");
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
@@ -37,11 +40,11 @@ app.use(passport.session());
 app.use(methodOverride("_method"));
 
 app.get("/", checkAuthenticated, (req, res) => {
-  res.render("index.ejs", { name: req.user.name });
+  res.render("partial-index.html", { name: req.user.name });
 });
 
 app.get("/login", checkNotAuthenticated, (req, res) => {
-  res.render("login.ejs");
+  res.render("partial-login.html");
 });
 
 app.post(
@@ -55,7 +58,7 @@ app.post(
 );
 
 app.get("/register", checkNotAuthenticated, (req, res) => {
-  res.render("register.ejs");
+  res.render("partial-register.html");
 });
 
 app.post("/register", checkNotAuthenticated, async (req, res) => {
@@ -93,4 +96,19 @@ function checkNotAuthenticated(req, res, next) {
   next();
 }
 
-app.listen(3000);
+const indexRouter = require("./routes/index");
+const jobsRouter = require("./routes/jobs");
+
+const initializedPassport = require("./passport-config");
+initializedPassport(
+  passport,
+  email => users.find(user => user.email === email),
+  id => users.find(user => user.id === id)
+);
+
+const users = [];
+
+app.use("/", indexRouter);
+app.use("/jobs", jobsRouter);
+
+module.exports = app;

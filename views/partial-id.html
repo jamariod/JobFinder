@@ -1,0 +1,32 @@
+
+${jobData.map(jobs => 
+    
+    `
+    <h1 class="button is-link">${jobs.title}</h2>
+
+    <div>
+        <div class="columns">
+            <div class="column">
+                <div class="control buttons has-addons">
+                    <span class="button is-link is-light is-static">Job Description:</span>
+                    <span class="button is-static">${jobs.job_description}</span>
+                </div>
+                <div class="control buttons has-addons">
+                    <span class="button is-link is-light is-static">Company:</span>
+                    <span class="button is-static">${jobs.company}</span>
+                </div>
+            </div>
+            <div class="column">
+                <div class="control buttons has-addons">
+                    <span class="button is-link is-light is-static">Date posted:</span>
+                    <span class="button is-static">${jobs.date_posted}</span>
+                </div>
+                <div class="control buttons has-addons">
+                    <span class="button is-link is-light is-static">Compensation:</span>
+                    <span class="button is-static">${jobs.compensation}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    `).join('')}
