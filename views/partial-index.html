@@ -13,10 +13,6 @@
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base index">
     
-<<<<<<< HEAD
-=======
-    
->>>>>>> 7b450f5c6e09ce0108d660b90d1625e48c6137c6
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     
     <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
@@ -27,7 +23,11 @@
         <a class="mdl-navigation__link" href="/">Home</a>
         <a class="mdl-navigation__link" href="">About</a>
         <a class="mdl-navigation__link" href="/jobs">Jobs</a>
-        <a class="mdl-navigation__link" href="">Logout</a>
+        <form action="/logout?_method=DELETE" method="POST">
+            <button type="submit">Log out</button>
+        </form>
+        <!-- <a class="mdl-navigation__link" href="/login">Logout</a> -->
+
       </nav>
             <span class="mdl-layout__title">
                 <div class="portfolio-logo">
