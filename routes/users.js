@@ -1,6 +1,6 @@
 const express = require("express"),
   bcrypt = require("bcryptjs"),
-  UserModel = require("../models/usersModel"),
+  usersModel = require("../models/usersModel"),
   router = express.Router();
 
 /* GET home page. */
@@ -15,29 +15,6 @@ router.get("/", function(req, res) {
   });
 });
 
-router.get("/signup", function(req, res) {
-  res.render("template", {
-    locals: {
-      title: "Register"
-    },
-    partials: {
-      partial: "partial-register"
-    }
-  });
-});
-
-// router.post("/login", function(req, res, next) {
-//   const { email, password } = req.body;
-
-//   const hash = password;
-//   const user = new UserModel(null, email, hash);
-//   user.addUser();
-//   res.sendStatus(200);
-// });
-
-// router.post("/signup", function(req, res, next) {
-//   res.sendStatus(200);
-// });
 router.post("/login", async function(req, res, next) {
   const { email, password } = req.body;
 
@@ -71,9 +48,10 @@ router.post("/register", async (req, res) => {
   const salt = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(req.body.password, salt);
 
-  const user = new usersModel(null, name, email, hash);
-  user.save().then(() => {
-    res.redirect("/users/login");
+  const user = new usersModel(null, null, null, name, email, hash);
+  user.addUser().then(() => {
+    console.log(user);
+    res.redirect("/");
   });
 });
 
