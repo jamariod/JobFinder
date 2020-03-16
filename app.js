@@ -98,6 +98,7 @@ function checkNotAuthenticated(req, res, next) {
 
 const indexRouter = require("./routes/index");
 const jobsRouter = require("./routes/jobs");
+const usersRouter = require("./routes/users");
 
 const initializedPassport = require("./passport-config");
 initializedPassport(
@@ -106,9 +107,10 @@ initializedPassport(
   id => users.find(user => user.id === id)
 );
 
-const users = [];
+//const users = [];
 
 app.use("/", indexRouter);
 app.use("/jobs", jobsRouter);
+app.use("/users", usersRouter);
 
 module.exports = app;

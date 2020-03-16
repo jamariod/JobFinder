@@ -38,7 +38,7 @@ router.get("/signup", function(req, res) {
 // router.post("/signup", function(req, res, next) {
 //   res.sendStatus(200);
 // });
-outer.post("/login", async function(req, res, next) {
+router.post("/login", async function(req, res, next) {
   const { email, password } = req.body;
 
   const user = new usersModel(null, null, email, password);
