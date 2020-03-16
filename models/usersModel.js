@@ -12,7 +12,7 @@ class User {
   async addUser() {
     try {
       const response = await db.one(
-        "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id;",
+        "INSERT INTO applicants (name, email, password) VALUES ($1, $2, $3) RETURNING id;",
         [this.name, this.email, this.password]
       );
       return response;
@@ -25,7 +25,7 @@ class User {
   async loginUser() {
     try {
       const response = await db.one(
-        `SELECT id, name, password FROM users WHERE email = $1;`,
+        `SELECT id, name, password FROM applicants WHERE email = $1;`,
         [this.email]
       );
       console.log("response is", response);
