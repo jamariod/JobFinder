@@ -18,8 +18,8 @@ router.get("/", function(req, res) {
 router.post("/login", async function(req, res, next) {
   const { email, password } = req.body;
 
-  const user = new usersModel(null, null, email, password);
-  const loginResponse = await user.userLogin();
+  const user = new usersModel(null, null, null, null, email, password);
+  const loginResponse = await user.loginUser();
   // console.log('login response is', loginResponse);
   if (!!loginResponse.isValid) {
     req.session.is_logged_in = loginResponse.isValid;
@@ -49,7 +49,7 @@ router.post("/register", async (req, res) => {
   const hash = bcrypt.hashSync(req.body.password, salt);
 
   const user = new usersModel(null, null, null, name, email, hash);
-  user.addUser().then(() => {
+  user.save().then(() => {
     console.log(user);
     res.redirect("/");
   });

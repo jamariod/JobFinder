@@ -1,4 +1,5 @@
 const db = require("./conn");
+bcrypt = require("bcryptjs");
 
 class User {
   constructor(id, job_id, bookmark_id, name, email, password) {
@@ -9,6 +10,29 @@ class User {
     this.email = email;
     this.password = password;
   }
+  checkPassword(hashedPassword) {
+    return bcrypt.compareSync(this.password, hashedPassword);
+  }
+
+  async save() {
+    try {
+      const response = await db.one(
+        `
+            insert into users 
+                (email, password) 
+            values 
+                ($1, $2) 
+            returning email
+            `,
+        [this.name, this.email, this.password]
+      );
+      console.log("user was created with id:", response.id);
+      return response;
+    } catch (err) {
+      return err.message;
+    }
+  }
+
   async addUser() {
     try {
       const response = await db.one(
