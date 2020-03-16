@@ -2,21 +2,21 @@ const db = require('./conn');
 
 
 class jobModel {
-    constructor (
-        job_id, 
-        bookmark_id, 
-        title, 
-        job_description, 
-        company, 
-        date_posted, 
+    constructor(
+        job_id,
+        bookmark_id,
+        title,
+        job_description,
+        company,
+        date_posted,
         compensation,
         name,
         email,
-        ) {
+    ) {
         this.job_id = job_id;
         this.bookmark_id = bookmark_id;
         this.title = title,
-        this.job_description = job_description;
+            this.job_description = job_description;
         this.company = company;
         this.date_posted = date_posted;
         this.compensation = compensation;
@@ -49,29 +49,29 @@ class jobModel {
     static async getJobsAscend() {
         try {
             const response = await db.any(`SELECT * FROM jobs ORDER BY date_posted ASC`);
-                // for dev testing -- remove when prod
-                console.log(response);
-                return (response);
-            } catch (error) {
-                // dev testing purposes
-                console.error('ERROR: ', error);
-                return error;
-            }
+            // for dev testing -- remove when prod
+            console.log(response);
+            return (response);
+        } catch (error) {
+            // dev testing purposes
+            console.error('ERROR: ', error);
+            return error;
         }
+    }
 
     // Sort by descending order of posted date
     static async getJobsDescend() {
         try {
             const response = await db.any(`SELECT * FROM jobs ORDER BY date_posted DESC`);
-                // Dev test
-                console.log(response);
-                return (response);
-            } catch (error) {
-                // dev test
-                console.error('ERROR: ', error);
-                return error;
-            }
-        }  
+            // Dev test
+            console.log(response);
+            return (response);
+        } catch (error) {
+            // dev test
+            console.error('ERROR: ', error);
+            return error;
+        }
+    }
 
     static async getOneJob(id) {
         try {
