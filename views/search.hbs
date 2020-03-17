@@ -35,26 +35,6 @@
 
 </style>
 
-
-LAYOUT
-Building blocks for constructing a page layout.
-
-Navigation layouts
-Grid
-Tabs
-Footer
-NAVIGATION LAYOUTS
-Title
-Link
-Link
-Link
-Link
-Title
-Link
-Link
-Link
-Link
-
 Transparent header	
 <!-- Uses a transparent header that draws on top of the layout's background -->
 <style>
@@ -97,11 +77,7 @@ Transparent header
   <main class="mdl-layout__content">
   </main>
 </div>
-Title
-Link
-Link
-Link
-Link
+
 Fixed drawer, no header	
 <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
@@ -145,6 +121,17 @@ Fixed drawer, no header
     <div class="page-content"><!-- Your content goes here --></div>
   </main>
 </div>
+=======
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="/">Home</a>
+        <a class="mdl-navigation__link" href="jobs">Jobs</a>
+        <a class="mdl-navigation__link" href="">Sign Out</a>
+        </nav>
+    </div>
+  </header>
 
     </div>
         <div class="search-ribbon">
