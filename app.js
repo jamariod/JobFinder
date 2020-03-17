@@ -15,11 +15,13 @@ const express = require("express"),
   flash = require("express-flash"),
   session = require("express-session"),
   methodOverride = require("method-override"),
+  handlebars = require('express-handlebars'),
   cheerio = require("cheerio");
 
 const indexRouter = require("./routes/index");
 const jobsRouter = require("./routes/jobs");
 const usersRouter = require("./routes/users");
+const searchRouter = require("./routes/search");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -28,8 +30,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.engine("html", es6Renderer);
+app.engine('.hbs', handlebars({ extname: '.hbs' }));
 app.set("views", "./views");
+app.set("view engine", ".hbs");
 app.set("view engine", "html");
+
+
 app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
@@ -40,8 +46,11 @@ app.use(
   })
 );
 
+
 app.use("/", indexRouter);
 app.use("/jobs", jobsRouter);
 app.use("/users", usersRouter);
+app.use("/search", searchRouter);
+
 
 module.exports = app;
