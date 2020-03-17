@@ -36,6 +36,53 @@
 
 </style>
 
+</div>
+    <div class="search-ribbon">
+            <form method="GET">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input query-input" type="text" id="query" name="q" placeholder='Enter a job title or keyword'>
+                    <label class="mdl-textfield__label" for="query"></label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input query-input" type="text" id="query" name="l" placeholder='Enter a city, state, or zip'>
+                    <label class="mdl-textfield__label" for="query"></label>
+                </div>
+                <div id="select_limit" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+                    <select id="limit" name="limit" class="mdl-selectfield__select">
+                        <option selected="" value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                    </select>
+                    <label for="limit" class="mdl-selectfield__label">Page Limit</label>        
+                </div>         
+    </div>
+    
+    <button type="submit" class="mdl-button query-button mdl-js-button mdl-button mdl-js-ripple-effect">Search</button>
+    <a href="/jobs">Go Back to Jobs</a>
+
+    </div>
+    <main class="mdl-layout__content">
+        <div>
+                {{# each jobs }}
+            <div class="mdl-cell mdl-card portfolio-card">
+                <div class="mdl-card__media"></div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">{{ this.title }}</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    {{ this.summary }}
+                </div>
+                <div class="mdl-card__actions">
+                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ this.url }}">Job Link</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        
+    </main>
+</div>
+
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
         <!-- Navigation. We hide it in small screens. -->

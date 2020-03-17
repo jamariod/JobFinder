@@ -1,79 +1,10 @@
-//This will load all enviroment variables
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
-
 const express = require("express"),
-  path = require("path"),
-  cookieParser = require("cookie-parser"),
-  logger = require("morgan"),
-  es6Renderer = require("express-es6-template-engine"),
+  bcrypt = require("bcryptjs"),
+  router = express.Router();
+const axios = require('axios');
+const cheerio = require('cheerio');
 
-  app = express(),
-  puppeteer = require("puppeteer"),
-  axios = require("axios"),
-  passport = require("passport"),
-  flash = require("express-flash"),
-  session = require("express-session"),
-  methodOverride = require("method-override"),
-  handlebars = require('express-handlebars'),
-  cheerio = require("cheerio");
-
-const indexRouter = require("./routes/index");
-const jobsRouter = require("./routes/jobs");
-const usersRouter = require("./routes/users");
-const searchRouter = require("./routes/search");
-
-  app = express();
-(puppeteer = require("puppeteer")),
-  (axios = require("axios")),
-  (passport = require("passport")),
-  (flash = require("express-flash")),
-  (session = require("express-session")),
-  (methodOverride = require("method-override")),
-  (handlebars = require('express-handlebars')),
-  (cheerio = require("cheerio"));
-
-
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-
-app.engine("html", es6Renderer);
-app.engine('.hbs', handlebars({ extname: '.hbs' }));
-app.set("views", "./views");
-app.set("view engine", ".hbs");
-app.set("view engine", "html");
-
-app.use(express.static(path.join(__dirname, 'models')));
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', '.hbs');
-
-app.use(express.urlencoded({ extended: false }));
-app.use(flash());
-app.use(
-  session({
-    secret: "smoothe operator",
-    resave: false,
-    saveUninitialized: false
-  })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(methodOverride("_method"));
-
-app.get("/", checkAuthenticated, (req, res) => {
-  res.render("partial-index.html", { name: req.user.name });
-});
-
-app.get("/login", checkNotAuthenticated, (req, res) => {
-  res.render("partial-login.html");
-});
-
-app.get('/search', function (req, res) {
+router.get('/', function (req, res) {
   queries = req.query;
   
   'use strict';
@@ -220,7 +151,7 @@ try {
       params: queries
   })
   .then(function(response){
-      res.render("Search", 
+      res.render("Search.hbs", 
       { title: "", 
       jobs: response.data});
 
@@ -230,45 +161,9 @@ try {
   });
   }
   else {
-      res.render("Search", 
+      res.render("Search.hbs", 
       {title: ""})
   }
 });
 
-app.post(
-  "/login",
-  checkNotAuthenticated,
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "login",
-    failureFlash: true
-  })
-);
-
-app.get("/register", checkNotAuthenticated, (req, res) => {
-  res.render("partial-register.html");
-});
-
-app.post("/register", checkNotAuthenticated, async (req, res) => {
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    users.push({
-      id: Date.now().toString(),
-      name: req.body.name,
-      email: req.body.email,
-      password: hashedPassword
-    });
-    res.redirect("/login");
-  } catch {
-    res.redirect("/register");
-  }
-  console.log(users);
-});
-
-app.use("/", indexRouter);
-app.use("/jobs", jobsRouter);
-app.use("/users", usersRouter);
-app.use("/search", searchRouter);
-
-
-module.exports = app;
+module.exports = router;
