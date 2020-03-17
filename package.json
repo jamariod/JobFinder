@@ -21,6 +21,7 @@
     "bcrypt": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "cheerio": "^1.0.0-rc.3",
+    "consolidate": "^0.15.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
