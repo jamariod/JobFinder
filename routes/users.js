@@ -21,14 +21,6 @@ router.post("/login", async function(req, res, next) {
   const user = new usersModel(null, null, null, null, email, password);
   const loginResponse = await user.loginUser();
   console.log("login response is", loginResponse);
-<<<<<<< HEAD
-=======
-
-  const user = new UserModel(null, null, email, password);
-  const loginResponse = await user.userLogin();
-  // console.log('login response is', loginResponse);
-
->>>>>>> 668c830dc769f4ce484f7821fa816046fcf1a2af
   if (!!loginResponse.isValid) {
     req.session.is_logged_in = loginResponse.isValid;
     req.session.user_id = loginResponse.id;
@@ -60,14 +52,6 @@ router.post("/register", async (req, res) => {
   user.addUser().then(() => {
     console.log(user);
     res.redirect("/");
-<<<<<<< HEAD
-=======
-
-  const user = new UserModel(null, name, email, hash);
-  user.save().then(() => {
-    res.redirect("/users/login");
-
->>>>>>> 668c830dc769f4ce484f7821fa816046fcf1a2af
   });
 });
 

@@ -31,13 +31,7 @@ class User {
   async loginUser() {
     try {
       const response = await db.one(
-<<<<<<< HEAD
         // `SELECT id, name, password from applicants WHERE email = johndoe@gmail.com;`,
-=======
-
-        // `SELECT id, name, password from applicants WHERE email = johndoe@gmail.com;`,
-
->>>>>>> 668c830dc769f4ce484f7821fa816046fcf1a2af
         `SELECT id, name, password FROM applicants WHERE email = $1;`,
         [this.email]
       );
