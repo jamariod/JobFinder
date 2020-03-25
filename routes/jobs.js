@@ -4,10 +4,7 @@ jobModel = require("../models/jobModel");
 
 // gets job page
 router.get("/", async function(req, res) {
-  const jobData = await jobModel.getAllJobs();
-
-  console.log(jobData);
-
+  const jobData = db.get('jobs').value();
   res.render("template", {
     locals: {
       title: "jobs",
@@ -18,5 +15,7 @@ router.get("/", async function(req, res) {
     }
   });
 });
+  // res.json(jobData);
+
 
 module.exports = router;

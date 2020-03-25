@@ -17,6 +17,9 @@ const express = require("express"),
   methodOverride = require("method-override"),
   handlebars = require('express-handlebars'),
   cheerio = require("cheerio");
+  db = require("./public/scripts/db")
+
+
 
 const indexRouter = require("./routes/index");
 const jobsRouter = require("./routes/jobs");
