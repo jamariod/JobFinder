@@ -1,9 +1,10 @@
 debug = require("../models/conn");
-const puppeteer = require("puppeteer");
+// const puppeteer = require("puppeteer");
 const axios = require("axios");
 const cheerio = require("cheerio");
+const db = require("../public/scripts/db")
 
-async function searchJobs(i) {
+async function searchJobs() {
   const url = await axios
     .get("https://indeed.com/jobs?q=Web+Developer&l=Atlanta&fromage=last")
     .then(response => response)
@@ -23,12 +24,13 @@ async function searchJobs(i) {
         const body = $(element)
           .children(".summary")
           .text();
-        jobs[index] = { title, linkToJob, body };
+        jobs.push({ title, linkToJob, body });
       });
-      console.log(jobs);
-      return jobs;
+
+      
+      db.set('jobs', jobs).write();
+
     });
-  return url;
 }
 
 module.exports = searchJobs;

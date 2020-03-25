@@ -29,7 +29,7 @@
             </div> 
 
     
-            <h1 id = 'title'>Job Directory</h1>
+            <h1 id = 'title'>Recent Dev Listings</h1>
 
             <style>
                 #title {
@@ -56,13 +56,10 @@ ${jobData.map(jobs => {
 
                 return `<div class = 'jobResult'>
                     <p id = 'job_title'><strong>${jobs.title}</strong></p>
-                    <p>${jobs.company}</p>
-                    <p>${jobs.job_description}</p>
-                    <p>Pay Rate: ${jobs.compensation}</p>
-                    <!-- <p>Date Posted: ${jobs.date_posted}</p> -->
+                    <p>${jobs.body}</p>
                     <div id= 'jobButtons'>
-                    <button class='button is-info is-outlined'>Read More</button>
-                    <button class='button is-primary is-outlined'>Save Job</button>
+                    <a href='https://www.indeed.com/${jobs.linkToJob}'><button class='button is-info is-outlined'>Read More</button></a>
+                    <!-- <button class='button is-primary is-outlined'>Save Job</button> -->
                 </div>
             </div>
                 `}).join('')}

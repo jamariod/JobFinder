@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www --ignore *.json"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "express-flash": "0.0.2",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.0",
+    "lowdb": "^1.0.0",
     "method-override": "^3.0.0",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
