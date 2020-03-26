@@ -4,209 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 </head>
+
 <body>
 
-<style>
-
-    div {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    }
-
-    div.mdl-cell.mdl-card.portfolio-card {
-        border: 1px solid black;
-    }
-    
-    a.mdl-button, button.mdl-button {
-        color: red;
-        border: 1px solid red;
-        border-radius: 5px;
-    }
-    
-}
-
-</style>
-
-
-LAYOUT
-Building blocks for constructing a page layout.
-
-Navigation layouts
-Grid
-Tabs
-Footer
-NAVIGATION LAYOUTS
-Title
-Link
-Link
-Link
-Link
-Title
-Link
-Link
-Link
-Link
-
-Transparent header	
-<!-- Uses a transparent header that draws on top of the layout's background -->
-<style>
-.demo-layout-transparent {
-  background: url('../assets/demos/transparent.jpg') center / cover;
-}
-.demo-layout-transparent .mdl-layout__header,
-.demo-layout-transparent .mdl-layout__drawer-button {
-  /* This background is dark, so we set text to white. Use 87% black instead if
-     your background is light. */
-  color: white;
-}
-</style>
-
-<div class="demo-layout-transparent mdl-layout mdl-js-layout">
-  <header class="mdl-layout__header mdl-layout__header--transparent">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">Title</span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation -->
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-  </main>
-</div>
-Title
-Link
-Link
-Link
-Link
-Fixed drawer, no header	
-<!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content"><!-- Your content goes here --></div>
-  </main>
-</div>
-	
-<!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">Title</span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="/jobs">Jobs</a>
+    <style>
+        div {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
         
-      </nav>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="/jobs">Jobs</a>
-      
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content"><!-- Your content goes here --></div>
-  </main>
-</div>
+        div.mdl-cell.mdl-card.portfolio-card {
+            border: 1px solid black;
+        }
+        
+        a.mdl-button,
+        button.mdl-button {
+            border: 1px solid black];
+            border-radius: 5px;
+            background: #3273dc;
+        }
+        
+        button.mdl-button {
+            color: white;
+            box-shadow: 1px 1px 1px black;
+        }
+        
+        a.mdl-button {
+            color: white;
+            box-shadow: 2px 2px 2px black;
+        }
+        
+        .entry {
+            margin-left: 2.25rem;
+        }
+        
+        .mdl-card__title-text {
+            font-weight: bold;
+        }
+        
+        .mdl-cell {
+            background-color: #3aaf9f;
+            box-shadow: 3px 3px 3px black;
+        }
+        
+        .mdl-card__text {
+            color: black;
+        }
+        
+        legend {
+            background-color: #000;
+            color: #fff;
+            padding: 3px 6px;
+        }
+    </style>
 
-    </div>
-        <div class="search-ribbon">
-                <form method="GET">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input query-input" type="text" id="query" name="q" placeholder='Enter a job title or keyword'>
+    <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base index">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+                <div class="mdl-layout__header-row portfolio-logo-row">
+                    <!-- Navigation -->
+                    <nav class="mdl-navigation">
+                        <a class="mdl-navigation__link" href="/">Home</a>
+                        <a class="mdl-navigation__link" href="/jobs">Jobs</a>
+                        <a class="mdl-navigation__link" href="/search">Search</a>
+                        <a class="mdl-navigation__link" href="/users/logout">Log out</a>
+                    </nav>
+                </div>
+            </header>
+        </div>
+
+        <div class="search-ribbon searchContainer">
+            <form method="GET">
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <div class="mdl-textfield entry">
+                    <fieldset>
+                        <legend>Job Title</legend>
+                        <input class="mdl-textfield__input query-input" type="text" id="query" name="q" placeholder='Enter a Job Title or Keyword' required minlength='3' maxlength="30">
                         <label class="mdl-textfield__label" for="query"></label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input query-input" type="text" id="query" name="l" placeholder='Enter a city, state, or zip'>
+                    </fieldset>
+                </div>
+                <div class="mdl-textfield entry">
+                    <fieldset>
+                        <legend>Location</legend>
+                        <input class="mdl-textfield__input query-input" type="text" id="query" name="l" placeholder='Enter a City, State, or Zip' required minlength='2' maxlength="50">
                         <label class="mdl-textfield__label" for="query"></label>
-                    </div>
-                    <div id="select_fromage" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
-                        <select id="fromage" name="fromage" class="mdl-selectfield__select">
-                                <option value="any">Anytime</option>
-                                <option value="60">Within the last 2 months</option>
-                                <option value="30">Within the last month</option>
-                                <option value="14">Within the last 2 weeks</option>
-                                <option value="7">Within the last week</option>
-                        </select>
-                        <label for="fromage" class="mdl-selectfield__label">Recently Added</label>        
+                    </fieldset>
+                </div>
+                <div class="mdl-textfield entry">
+                    <fieldset>
+                        <legend>Results by Page</legend>
+                        <input class="mdl-textfield__input query-input" type="number" id="query" name="limit" placeholder='Enter a Numeric Value (1-100)'>
+                        <label class="mdl-textfield__label" for="query"></label>
+                    </fieldset>
+                </div>
+                <div class="mdl-textfield entry">
+                    <fieldset>
+                        <legend>Distance from Location</legend>
+                        <input class="mdl-textfield__input query-input" type="number" id="query" name="radius" placeholder='Enter a Numeric Value (0-100 miles)'>
+                        <label class="mdl-textfield__label" for="query"></label>
+                    </fieldset>
+                </div>
+
+                <button type="submit" class="mdl-button query-button mdl-js-button">
+                    <span class="material-icons">search</span>
+                </button>
+
         </div>
-        <div id="select_radius" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
-            <select id="radius" name="radius" class="mdl-selectfield__select">
-                <option value="5">Nearby</option>
-                <option value="10">within 10 miles</option>
-                <option value="25">within 25 miles</option>
-                <option value="100">within 100 miles</option>
-            </select>
-            <label for="radius" class="mdl-selectfield__label">Radius</label>
-        </div>
-        <div id="select_limit" class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
-            <select id="limit" name="limit" class="mdl-selectfield__select">
-                <option selected="" value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-                <option value="50">50</option>
-            </select>
-            <label for="limit" class="mdl-selectfield__label">Limit</label>        
-        </div>
-        <button type="submit" class="mdl-button query-button mdl-js-button mdl-button mdl-js-ripple-effect">Search</button>
-        </form>
+
         </div>
         <main class="mdl-layout__content">
             <div>
-                 {{# each jobs }}
+                {{# each jobs }}
                 <div class="mdl-cell mdl-card portfolio-card">
                     <div class="mdl-card__media"></div>
                     <div class="mdl-card__title">
                         <h2 class="mdl-card__title-text">{{ this.title }}</h2>
                     </div>
-                    <div class="mdl-card__supporting-text">
+                    <div class="mdl-card__actions mdl-card--border"></div>
+                    <div class="mdl-card__text">
                         {{ this.summary }}
                     </div>
-                    <div class="mdl-card__actions">
+                    <div class="mdl-card__actions mdl-card--border">
                         <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="{{ this.url }}">Job Link</a>
                     </div>
                 </div>
                 {{/each}}
             </div>
-            
+
         </main>
-    </div>
-</body>
+        </div>
+    </body>
+
 </html>
