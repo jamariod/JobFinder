@@ -3,4 +3,4 @@ BackEnd project for week 9 DigitalCrafts coding bootcamp. Developers are Jamario
 
 The purpose of this website is to eliminate job seekers from having to filter through multiple large databases/websites to find jobs specific to their career fields and curtail it to their local area and career field preferences. Technologies used to build JobFinder are HTML, CSS, Node.js, Expresss.js, and Postgres.
 
-https://www.youtube.com/watch?v=we25LgnDjB4
+Video demo of JobFinder https://www.youtube.com/watch?v=we25LgnDjB4
