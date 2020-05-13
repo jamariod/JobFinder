@@ -28,10 +28,11 @@ This backend group project was part of a 1-week sprint using Node.js and Express
   - HTML 
   - CSS
   - Bootstrap
+  - JS
 
 - Back-End:
   - Node.js 
-  - Expresss
+  - Express
   - PostgreSQL (ElephantSQL)
 
 - Notable Node-Modules | Libraries
