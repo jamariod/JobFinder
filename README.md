@@ -55,7 +55,9 @@ This backend group project was part of a 1-week sprint using Node.js and Express
 ## Developers:
 Jamario Davis:
 https://github.com/jamariod
+
 Joseph Kim:
 https://github.com/TheCaptainFalcon
+
 Paxton Lindsey:
 https://github.com/linzblue1
